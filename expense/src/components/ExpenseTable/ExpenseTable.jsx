@@ -1,4 +1,4 @@
-import ExpenseItem from '../expenseitem/ExpenseItem.jsx';
+import ExpenseItem from '../ExpenseItem/ExpenseItem.jsx';
 import './ExpenseTable.css';
 
 const ExpenseTable = (props) => {
