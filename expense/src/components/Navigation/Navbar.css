@@ -1,0 +1,25 @@
+.navbar{
+    display: flex;
+    background-color: #302f2f;
+    height: 10%;
+    margin: 10px;
+    padding: 10px;
+    width: 90%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.logout{
+    font: inherit;
+      cursor: pointer;
+      padding: 1rem 1rem;
+      border: 1px solid #ffffff;
+      background-color: #ea0f3e;
+      color: white;
+      border-radius: 12px;
+      margin-right: 1rem;
+}
+
+.logout:hover{
+    background-color: #fb194a;
+  }

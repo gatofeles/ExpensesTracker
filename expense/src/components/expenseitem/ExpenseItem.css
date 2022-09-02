@@ -53,4 +53,19 @@
       font-size: 1.25rem;
       padding: 0.5rem 1.5rem;
     }
+
+    .detele-expense {
+      font: inherit;
+      cursor: pointer;
+      padding: 1rem 1rem;
+      border: 1px solid #ffffff;
+      background-color: #ea0f3e;
+      color: white;
+      border-radius: 12px;
+      margin-right: 1rem;
+      
+    }
+    .detele-expense:hover{
+      background-color: #fb194a;
+    }
   }

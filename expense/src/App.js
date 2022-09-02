@@ -1,36 +1,22 @@
-import ExpenseTable from './components/ExpenseTable/ExpenseTable';
-import NewExpense from './components/NewExpense/NewExpense';
-import "./App.css"
+
+import React, {useEffect} from "react";
+import "./App.css";
+import MainApp from "./components/MainApp";
+import {Route, Switch} from 'react-router-dom';
 function App() {
-  const expenses = [
-    {
-      id: 'e1',
-      title: 'Toilet Paper',
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-    {
-      id: 'e3',
-      title: 'Car Insurance',
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: 'e4',
-      title: 'New Desk (Wooden)',
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
-  ];
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if(!token){
+      this.props.history.push("/login");
+    }
+  });
+
   return (
-    <div className="App-header">
-      <NewExpense expenses = {expenses}/>
-      <ExpenseTable  expense = {expenses}/>
+    
+    <Route path="/" component = {MainApp} />
      
-     
-      
-    </div>
   );
 }
 
