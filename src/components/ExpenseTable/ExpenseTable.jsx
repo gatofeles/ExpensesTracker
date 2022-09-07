@@ -7,6 +7,8 @@ const ExpenseTable = (props) => {
 
     useEffect(() => {
         setLength(props.expense.length);
+      // console.log("Length");
+       //console.log(length);
     });
 
     if(length>0){

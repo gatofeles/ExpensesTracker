@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, {useState} from "react";
 import './Login.css';
+import {useNavigate} from 'react-router-dom';
 
 const Login = () =>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const getEmail = (e) => {
         setEmail(e.target.value);
@@ -21,10 +23,28 @@ const Login = () =>{
             password:password
         }
 
-        const result = await axios.post(
-            'https://financeappback.herokuapp.com/users/login',creds
-          );
-        console.log(result.data);
+        try{
+            const result = await axios.post(
+                process.env.REACT_APP_BACKEND +'users/login',creds
+              );
+              //console.log("from logi");
+              //console.log(result.data);
+              if(result.status === 200){
+                
+                localStorage.setItem("finance-token", result.data.token);
+                localStorage.setItem("finance-user", result.data.userId);
+                //console.log(localStorage.getItem("finance-token"));
+                navigate("/");
+            }
+
+            else{
+                alert("Not able to login");
+            }
+        }
+       
+       catch{
+           alert("Not able to login");
+       }
         
     }
 
@@ -40,7 +60,7 @@ const Login = () =>{
                     <input onChange = {getPassword} className = "loginInput" type="password" id="senha" name="password"/>
                 <div className="buttons">
                     <input id = 'loginBtn' className = "submitBtn" type="submit" name="Login" value="Login"/>
-                    <input id = 'registerBtn' className = "submitBtn" type="submit" name="Register" value="Register"/>
+                    <div id = 'registerBtn' className = "submitBtn"> Register </div>
                 </div>
                 </form>
         </div>

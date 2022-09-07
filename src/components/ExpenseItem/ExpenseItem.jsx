@@ -17,8 +17,8 @@ const ExpenseItem = (props) => {
         console.log(transaction._id);
         try{
             await axios.delete(
-                'https://financeappback.herokuapp.com/transactions',{headers:{
-                  "x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGJjYTc2ZjQzMTA0ZDFhMTE0M2VmYiIsImlhdCI6MTY2MjA1NjIzMn0.-jFAAp0hrkhQUpO4dbcNv7J6DxoCNsoons2XQH3WzBw"
+                process.env.REACT_APP_BACKEND + 'transactions',{headers:{
+                  "x-auth-token":localStorage.getItem('finance-token')
                 },data:transaction}
               );
         }

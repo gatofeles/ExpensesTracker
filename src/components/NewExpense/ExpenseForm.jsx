@@ -22,19 +22,21 @@ const ExpenseForm = (props) => {
     }
 
     const createNewTransaction = async (e) => {
-        console.log(title);
+       
         e.preventDefault();
-        const trasaction = {
-            userId:'630bca76f43104d1a1143efb',
+        const transaction = {
+            userId: localStorage.getItem('finance-user'),
             title:title,
             cost:cost,
             description:description,
             date:date
         }
 
+        console.log(transaction);
+
         const result = await axios.post(
-            'https://financeappback.herokuapp.com/transactions',trasaction,{headers:{
-              "x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGJjYTc2ZjQzMTA0ZDFhMTE0M2VmYiIsImlhdCI6MTY2MTk4NzI1MH0.cv8STngBhtwfbXHdlqkzvzOoec1B3aB-l993MBRVQqY"
+            process.env.REACT_APP_BACKEND + 'transactions',transaction,{headers:{
+              "x-auth-token":localStorage.getItem('finance-token')
             },}
           );
         //console.log(result.data);
@@ -66,7 +68,7 @@ const ExpenseForm = (props) => {
                     </div>
                 </div>
                 <div className="new-expense__actions">
-                    <button type = "submit"  >Add Expense</button>
+                    <button type = "submit">Add Expense</button>
                 </div>
             </form>
     );
