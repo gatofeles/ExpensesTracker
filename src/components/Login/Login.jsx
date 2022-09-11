@@ -15,6 +15,10 @@ const Login = () =>{
         setPassword(e.target.value);
     }
 
+    const handleRegister = () => {
+        navigate("/register");
+    }
+
     const login = async (e) => {
 
         e.preventDefault();
@@ -60,7 +64,7 @@ const Login = () =>{
                     <input onChange = {getPassword} className = "loginInput" type="password" id="senha" name="password"/>
                 <div className="buttons">
                     <input id = 'loginBtn' className = "submitBtn" type="submit" name="Login" value="Login"/>
-                    <div id = 'registerBtn' className = "submitBtn"> Register </div>
+                    <div id = 'registerBtn' className = "submitBtn" onClick={handleRegister}> Register </div>
                 </div>
                 </form>
         </div>

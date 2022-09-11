@@ -1,6 +1,7 @@
 
 import React, {useEffect, useState} from "react";
 import "./App.css";
+import Register from "./components/Register/Register"
 import MainApp from "./components/MainApp";
 import {Route, Routes} from 'react-router-dom';
 import Login from "./components/Login/Login";
@@ -22,6 +23,7 @@ function App() {
   return (
     <Routes>
       <Route path="/login" element = {<Login/>} />
+      <Route path="/register" element = {<Register/>} />
       <Route path="/" element = {<MainApp token = {token} userId = {userId}/>} />
     </Routes>
      
